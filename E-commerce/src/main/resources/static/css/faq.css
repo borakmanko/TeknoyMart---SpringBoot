@@ -1,0 +1,68 @@
+:root {
+    --maroon: #800000;
+    --maroon-dark: #600000;
+}
+body {
+    background-color: #f8f9fa;
+    color: #333;
+}
+.faq-container {
+    max-width: 800px;
+    margin: 2rem auto;
+}
+.faq-title {
+    color: var(--maroon);
+    margin-bottom: 2rem;
+}
+.accordion-button:not(.collapsed) {
+    background-color: var(--maroon);
+    color: white;
+}
+.accordion-button:focus {
+    box-shadow: 0 0 0 0.25rem rgba(128, 0, 0, 0.25);
+}
+.btn-maroon {
+    background-color: maroon;
+    color: yellow;
+    transition: all 0.3s ease;
+}
+.btn-maroon:hover {
+    background-color: yellow;
+    color: maroon;
+    transform: scale(1.05);
+}
+.accordion-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.accordion-item.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+.floating {
+    animation: float 3s ease-in-out infinite;
+}
+.back-button {
+    position: absolute;
+    top: 0.5rem;
+    left: 0.5rem;
+    z-index: 1000;
+    font-size: 0.75rem;
+}
+.footerr {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: maroon; /* adjust color as needed */
+    text-align: center;
+    color: white;
+    padding: 10px 0;
+    z-index: 10; /* ensures the footer stays above other elements if needed */
+}

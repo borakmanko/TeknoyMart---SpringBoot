@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Messages</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <header class="border-bottom">
+    <div class="container">
+        <div class="row py-2 align-items-center">
+            <div class="col d-flex align-items-center">
+                <span class="me-2">Hi!</span>
+                <a href="/login" class="text-decoration-underline me-1">Sign in</a>
+                <span class="me-1">or</span>
+                <a href="/register" class="text-decoration-underline">Register</a>
+                <span class="me-1">or</span>
+                <a href="/admin" class="text-decoration-underline">Admin</a>
+                <span class="me-1">or</span>
+                <a href="/seller" class="text-decoration-underline">Selller</a>
+            </div>
+            <div class="col d-flex justify-content-end align-items-center">
+                <a href="/products" class="text-decoration-none me-3 text-body">Products</a>
+                <div class="dropdown d-inline-block me-3">
+                    <button class="btn btn-link text-decoration-none p-0 dropdown-toggle text-body" type="button" id="myEbayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        My eBay
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="myEbayDropdown">
+                        <li><a class="dropdown-item" href="/myaccount">My Account</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </div>
+                <i class="bi bi-bell me-3"></i>
+                <a href="/cart">
+                    <i class="bi bi-cart3"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+  <body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link mb-3" href="/admin">
+                                <i class="fas fa-tachometer-alt me-2"></i>Dashboard
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-3" href="/admin/category">
+                                <i class="fas fa-tags me-2"></i>Categories
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-3" href="/admin/users">
+                                <i class="fas fa-users me-2"></i>Users
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-3" href="/aadmin">
+                                <i class="fas fa-user-shield me-2"></i>Admins
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-3" href="/amessages">
+                                <i class="fas fa-box me-2"></i>Messages
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link mb-3" href="/areports">
+                                <i class="fas fa-chart-bar me-2"></i>Reports
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10">
+                <div class="content" style="scrollbar-width: thin;">
+                    <!-- Header -->
+                    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                        <h1 class="h2 maroon-text">Messages</h1>
+                        <div class="btn-toolbar mb-2 mb-md-0">
+                            <div class="input-group me-2">
+                                <input type="text" class="form-control" placeholder="Search messages...">
+                                <button class="btn btn-outline-secondary" type="button">
+                                    <i class="bi bi-search"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Message Statistics -->
+                    <div class="row mb-4">
+                        <div class="col-md-3 mb-4">
+                            <div class="card bg-primary text-white h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Total Messages</h5>
+                                    <p class="card-text display-6">1,234</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card bg-success text-white h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">New Messages</h5>
+                                    <p class="card-text display-6">42</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card bg-warning text-dark h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Unread Messages</h5>
+                                    <p class="card-text display-6">78</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 mb-4">
+                            <div class="card bg-info text-white h-100">
+                                <div class="card-body">
+                                    <h5 class="card-title">Avg. Response Time</h5>
+                                    <p class="card-text display-6">2.5h</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Compose Message Form -->
+                    <div class="card mb-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0 maroon-text">Compose New Message</h5>
+                        </div>
+                        <div class="card-body">
+                            <form id="composeMessageForm">
+                                <div class="mb-3">
+                                    <label for="recipient" class="form-label">Recipient</label>
+                                    <input type="text" class="form-control" id="recipient" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="subject" class="form-label">Subject</label>
+                                    <input type="text" class="form-control" id="subject" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="messageBody" class="form-label">Message</label>
+                                    <textarea class="form-control" id="messageBody" rows="5" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-ebay">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <!-- Messages List -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0 maroon-text">Messages List</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Sender</th>
+                                            <th>Subject</th>
+                                            <th>Preview</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>
+                                                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar" class="message-avatar me-2">
+                                                John Doe
+                                            </td>
+                                            <td>Question about my order</td>
+                                            <td>Hello, I have a question about...</td>
+                                            <td>2023-06-15 14:30</td>
+                                            <td><span class="badge bg-danger">Unread</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar" class="message-avatar me-2">
+                                                Jane Smith
+                                            </td>
+                                            <td>Refund request</td>
+                                            <td>I would like to request a refund...</td>
+                                            <td>2023-06-14 09:15</td>
+                                            <td><span class="badge bg-success">Replied</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar" class="message-avatar me-2">
+                                                Mike Johnson
+                                            </td>
+                                            <td>Product inquiry</td>
+                                            <td>I'm interested in purchasing...</td>
+                                            <td>2023-06-13 16:45</td>
+                                            <td><span class="badge bg-warning">Pending</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar" class="message-avatar me-2">
+                                                Emily Brown
+                                            </td>
+                                            <td>Shipping delay</td>
+                                            <td>I haven't received my package yet...</td>
+                                            <td>2023-06-12 11:20</td>
+                                            <td><span class="badge bg-info">In Progress</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <img src="/placeholder.svg?height=40&width=40" alt="User Avatar" class="message-avatar me-2">
+                                                David Lee
+                                            </td>
+                                            <td>Positive feedback</td>
+                                            <td>I just wanted to say thank you...</td>
+                                            <td>2023-06-11 13:10</td>
+                                            <td><span class="badge bg-secondary">Archived</span></td>
+                                            <td>
+                                                <button class="btn btn-sm btn-outline-primary me-1"><i class="fas fa-eye"></i></button>
+                                                <button class="btn btn-sm btn-outline-danger"><i class="fas fa-trash"></i></button>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Pagination -->
+                            <nav aria-label="Messages pagination">
+                                <ul class="pagination justify-content-center">
+                                    <li class="page-item disabled">
+                                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                                    </li>
+                                    <li class="page-item active" aria-current="page">
+                                        <a class="page-link" href="#">1</a>
+                                    </li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item">
+                                        <a class="page-link" href="#">Next</a>
+                                    </li>
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <!-- Message Volume Chart -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0 maroon-text">Message Volume</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="chart-container">
+                                <canvas id="messageVolumeChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Replies -->
+                    <div class="card mt-4">
+                        <div class="card-header">
+                            <h5 class="card-title mb-0 maroon-text">Quick Replies</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-4 mb-3">
+                                    <button class="btn btn-outline-secondary w-100">Order Status  Update</button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <button class="btn btn-outline-secondary w-100">Refund Process</button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <button class="btn btn-outline-secondary w-100">Shipping Information</button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <button class="btn btn-outline-secondary w-100">Product Availability</button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <button class="btn btn-outline-secondary w-100">Return Policy</button>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <button class="btn btn-outline-secondary w-100">Payment Issues</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+            </div>
+            </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

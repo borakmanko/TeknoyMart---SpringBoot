@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Details</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <header class="border-bottom">
+    <div class="container">
+      <div class="row py-2 align-items-center">
+        <div class="col d-flex align-items-center">
+          <span class="me-2">Hi!</span>
+          <a href="/login" class="text-decoration-underline me-1">Sign in</a>
+          <span class="me-1">or</span>
+          <a href="/register" class="text-decoration-underline">Register</a>
+        </div>
+        <div class="col d-flex justify-content-end align-items-center">
+          <a href="/products" class="text-decoration-none me-3 text-body">Products</a>
+          <div class="dropdown d-inline-block me-3">
+            <button class="btn btn-link text-decoration-none p-0 dropdown-toggle text-body" type="button" id="myEbayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              My eBay
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="myEbayDropdown">
+              <li><a class="dropdown-item" href="/myaccount">My Account</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+            </ul>
+          </div>
+          <i class="bi bi-bell me-3"></i>
+          <a href="/cart">
+            <i class="bi bi-cart3"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#"></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+            
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+                <div class="position-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#">
+                                <i class="bi bi-person"></i> Profile
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/purchase">
+                                <i class="bi bi-cart"></i> My Purchases
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/listings">
+                                <i class="bi bi-tag"></i> My Listings
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">
+                                <i class="bi bi-heart"></i> Watchlist
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/settings">
+                                <i class="bi bi-gear"></i> Settings
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main class="col-md-9 ms-sm-auto col-lg-10">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 class="h2">My Account</h1>
+                </div>
+
+                <section id="profile">
+                    <h2>Profile Information</h2>
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Full Name</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">Kurt Saranillo Macasling</p>
+                                    <!-- <p class="text-muted mb-0" th:text="${user.fullName}">John Doe</p> -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Email</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">kurt.macasling@cit.edu</p>
+                                    <!-- <p class="text-muted mb-0" th:text="${user.email}">johndoe@example.com</p> -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Phone</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">(+63) 976 212 3088</p>
+                                    <!-- <p class="text-muted mb-0" th:text="${user.phone}">(097) 234-5678</p> -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Address</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">Tunga, Moalboal, Cebu</p>
+                                    <!-- <p class="text-muted mb-0" th:text="${user.address}">Tunga, Moalboal, Cebu</p> -->
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <p class="mb-0">Department</p>
+                                </div>
+                                <div class="col-sm-9">
+                                    <p class="text-muted mb-0">Computer Engineering</p>
+                                    <!-- <p class="text-muted mb-0" th:text="${user.department}">Computer Engineering</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="account-summary">
+                    <h2>Account Summary</h2>
+                    <div class="row">
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Active Listings</h5>
+                                    <p class="card-text display-4">5</p>
+                                    <!-- <p class="card-text display-4" th:text="${activeListings}">5</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Completed Sales</h5>
+                                    <p class="card-text display-4">12</p>
+                                    <!-- <p class="card-text display-4" th:text="${completedSales}">12</p> -->
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Feedback Score</h5>
+                                    <p class="card-text display-4">98%</p>
+                                    <!-- <p class="card-text display-4" th:text="${feedbackScore} + '%'">98%</p> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="recent-activity">
+                    <h2>Recent Activity</h2>
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Activity</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>2023-04-15</td>
+                                <td>Sold: Vintage Camera</td>
+                                <td><span class="badge bg-success">Completed</span></td>
+                            </tr>
+                            <tr>
+                                <td>2023-04-12</td>
+                                <td>Listed: Antique Clock</td>
+                                <td><span class="badge bg-primary">Active</span></td>
+                            </tr>
+                            <tr>
+                                <td>2023-04-10</td>
+                                <td>Purchased: Smartphone</td>
+                                <td><span class="badge bg-info">Shipped</span></td>
+                            </tr>
+                            <!-- Thymeleaf iteration for dynamic content -->
+                            <!-- <tr th:each="activity : ${recentActivities}">
+                                <td th:text="${activity.date}">2023-04-15</td>
+                                <td th:text="${activity.description}">Sold: Vintage Camera</td>
+                                <td><span th:text="${activity.status}" th:class="${'badge bg-' + activity.statusColor}">Completed</span></td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

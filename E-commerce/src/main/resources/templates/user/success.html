@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Payment Successful | TeknoyMart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/success.css" />
+</head>
+<body>
+    <div class="container d-flex align-items-center justify-content-center min-vh-100">
+        <div class="main-container p-5 text-center">
+            <div class="celebration-container" id="celebration-container"></div>
+            <div class="mb-4 position-relative">
+                <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-success check-icon">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <div class="star" style="top: -10px; left: 0px;"></div>
+                <div class="star" style="top: -10px; right: 0px;"></div>
+                <div class="star" style="bottom: -10px; left: 0px;"></div>
+                <div class="star" style="bottom: -10px; right: 0px;"></div>
+            </div>
+            <h1 class="display-4 mb-3">Payment Succeed!</h1>
+            <p class="lead mb-4">Your transaction was completed successfully. Thank you for your purchase!</p>
+            <a href="/products" th:href="@{/products}" class="btn btn-maroon">
+                Back to Shopping
+            </a>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function createFirework() {
+            const container = document.getElementById("celebration-container");
+            const firework = document.createElement("div");
+            firework.className = "celebration-firework";
+            firework.style.left = Math.random() * 100 + "%";
+            firework.style.top = Math.random() * 100 + "%";
+            firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            firework.style.setProperty("--x", (Math.random() - 0.5) * 100 + "px");
+            firework.style.setProperty("--y", (Math.random() - 0.5) * 100 + "px");
+            container.appendChild(firework);
+            setTimeout(() => firework.remove(), 2000);
+        }
+
+        function createConfetti() {
+            const container = document.getElementById("celebration-container");
+            const confetti = document.createElement("div");
+            confetti.className = "celebration-confetti";
+            confetti.style.left = Math.random() * 100 + "%";
+            confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+            confetti.style.setProperty("--x", (Math.random() - 0.5) * 100 + "px");
+            confetti.style.setProperty("--y", Math.random() * 100 + "px");
+            container.appendChild(confetti);
+            setTimeout(() => confetti.remove(), 2000);
+        }
+
+        setInterval(createFirework, 700);
+        setInterval(createConfetti, 200);
+    </script>
+</body>
+</html>

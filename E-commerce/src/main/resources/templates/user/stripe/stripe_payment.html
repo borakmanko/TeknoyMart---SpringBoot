@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{header::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container mt-4">
+        <div class="row justify-content-center">
+          <div class="col-md-4">
+            <h3 class="mb-4">Payment Details</h3>
+            <form
+              th:action="@{/user/payment-card}"
+              method="post"
+              th:object="${stripeReq}"
+            >
+              <input type="hidden" th:field="*{userId}" class="form-control" />
+              <div class="mb-3">
+                <label for="email" class="form-label">Email Address</label>
+                <input
+                  type="email"
+                  th:field="*{email}"
+                  id="email"
+                  class="form-control"
+                  required
+                  readonly
+                  aria-describedby="emailHelp"
+                />
+                <div id="emailHelp" class="form-text">
+                  <small>We'll never share your email with anyone else.</small>
+                </div>
+                <p
+                  th:if="${#fields.hasErrors('email')}"
+                  th:errors="*{email}"
+                  class="text-danger"
+                ></p>
+              </div>
+              <div class="mb-3">
+                <label for="totalPrice" class="form-label">Total Amount</label>
+                <input
+                  type="number"
+                  th:field="*{totalOrderPrice}"
+                  id="totalPrice"
+                  class="form-control"
+                  required
+                  readonly
+                  aria-describedby="totalPriceHelp"
+                />
+                <div id="totalPriceHelp" class="form-text mb-2">
+                  <small>Payment amount: </small
+                  ><small th:text="${stripeReq.totalOrderPrice}"></small>
+                </div>
+                <button type="submit" class="btn btn-ebay">Submit</button>
+                <a href="/user/cart" type="button" class="btn btn-secondary"
+                  >Cancel</a
+                >
+              </div>
+            </form>
+
+            <footer class="text-center text-muted small mt-4">
+              <p>
+                Copyright © 2024 TeknoyMart Inc. All Rights Reserved.
+                <i class="bi bi-info-circle"></i>
+              </p>
+            </footer>
+          </div>
+        </div>
+      </div>
+    </section>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

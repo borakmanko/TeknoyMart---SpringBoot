@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="/css/aboutus.css" />
+</head>
+<body>
+    <header class="hero">
+        <!-- Balloons -->
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+        <div class="balloon"></div>
+
+        <!-- Flying Airplane -->
+        <div class="airplane"></div>
+        <div class="namie"></div>
+        <div class="car"></div>
+        <div class="truck"></div>
+        
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div>
+        <div class="confetti"></div> 
+    
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-4 fw-bold mb-4 color-changing">We are Team - 3</h1>
+                    <p class="lead mb-4">Bringing innovation and creativity to every project we touch.</p>
+                    <a href="/login" class="btn btn-light btn-lg">Sign in</a>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <img src="/images/Tekmart.svg?height=400&width=600" alt="Team illustration" class="img-fluid floating">
+                </div>
+            </div>
+        </div>        
+    </header>
+    <section id="about" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">About Us</h2>
+            <div class="row">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <p>We are a dynamic team of five passionate individuals, each bringing unique skills and perspectives to the table. Our diverse backgrounds and expertise allow us to tackle complex challenges and deliver innovative solutions.</p>
+                    <p>With a shared commitment to excellence and a collaborative spirit, we strive to exceed expectations and push the boundaries of what's possible in our field.</p>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="mb-4">Our Skills</h3>
+                    <div class="skill">
+                        <div class="d-flex justify-content-between">
+                            <span>Web Development</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="d-flex justify-content-between">
+                            <span>UI/UX Design</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                    <div class="skill">
+                        <div class="d-flex justify-content-between">
+                            <span>Project Management</span>
+                            <span>100%</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 100%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="team" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Meet Our Team</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="100">
+                    <div class="card team-member">
+                        <img src="/images/backend.png?height=300&width=300" class="card-img-top" alt="John Doe">
+                        <div class="card-body text-center">
+                            <h5 class="card-title maroon-text">John Lester G. Pansoy</h5>
+                            <p class="card-text" style="text-align: center;">Fullstack Developer (Focus: Backend)</p>
+                            <p class="card-text">Works on both backend and frontend but primarily focuses on server-side logic, databases, and APIs. This developer will collaborate with the frontend-focused Fullstack Developer to ensure smooth integration.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="200">
+                    <div class="card team-member">
+                        <img src="/images/frontend.png?height=300&width=300" class="card-img-top" alt="Jane Smith">
+                        <div class="card-body text-center">
+                            <h5 class="card-title maroon-text">Kurt S. Macasling</h5>
+                            <p class="card-text" style="text-align: center;">Fullstack Developer (Focus: Frontend)</p>
+                            <p class="card-text">Works across the stack but primarily focuses on frontend development, creating the UI, and ensuring a user-friendly interface. Works closely with the backend-focused Fullstack Developer to connect frontend components with backend logic.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="300">
+                    <div class="card team-member">
+                        <img src="/images/project.png?height=300&width=300" class="card-img-top" alt="Mike Johnson">
+                        <div class="card-body text-center">
+                            <h5 class="card-title maroon-text">Jacob Abayon</h5>
+                            <p class="card-text" style="text-align: center;">Project Manager</p>
+                            <p class="card-text">Oversees project timelines, coordinates tasks, and communicates project goals and updates with stakeholders. This role also manages priorities and feature requirements to ensure the team remains aligned.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="400">
+                    <div class="card team-member">
+                        <img src="/images/qa.png?height=300&width=300" class="card-img-top" alt="Emily Brown">
+                        <div class="card-body text-center">
+                            <h5 class="card-title maroon-text">Kirk Navarro</h5>
+                            <p class="card-text" style="text-align: center;">Quality Assurance Engineer</p>
+                            <p class="card-text">Responsible for testing the software to ensure quality and functionality, writing test cases, and running both manual and automated tests. Works with developers to identify, verify, and resolve any issues.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="flip-left" data-aos-delay="500">
+                    <div class="card team-member">
+                        <img src="/images/devops.png?height=300&width=300" class="card-img-top" alt="Sarah Lee">
+                        <div class="card-body text-center">
+                            <h5 class="card-title maroon-text">Roi Regis</h5>
+                            <p class="card-text" style="text-align: center;">DevOps Engineer</p>
+                            <p class="card-text">Focuses on understanding user needs, designing user-friendly interfaces, and improving overall user experience. Collaborates with developers to implement design solutions effectively.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Project Timeline</h2>
+            <div class="timeline-chart">
+                <div class="timeline-sprint">
+                    <div class="sprint-label">Sprint 1</div>
+                    <div class="sprint-bar-container">
+                        <div class="sprint-bar" style="--duration: 2; --delay: 0;"></div>
+                    </div>
+                    <div class="sprint-duration">2 weeks</div>
+                </div>
+                <div class="timeline-sprint">
+                    <div class="sprint-label">Sprint 2</div>
+                    <div class="sprint-bar-container">
+                        <div class="sprint-bar" style="--duration: 2; --delay: 2;"></div>
+                    </div>
+                    <div class="sprint-duration">2 weeks</div>
+                </div>
+                <div class="timeline-sprint">
+                    <div class="sprint-label">Sprint 3</div>
+                    <div class="sprint-bar-container">
+                        <div class="sprint-bar" style="--duration: 4; --delay: 4;"></div>
+                    </div>
+                    <div class="sprint-duration">4 weeks</div>
+                </div>
+                <div class="timeline-sprint">
+                    <div class="sprint-label">Sprint 4</div>
+                    <div class="sprint-bar-container">
+                        <div class="sprint-bar" style="--duration: 4; --delay: 8;"></div>
+                    </div>
+                    <div class="sprint-duration">4 weeks</div>
+                </div>
+                <div class="timeline-sprint">
+                    <div class="sprint-label">Sprint 5</div>
+                    <div class="sprint-bar-container">
+                        <div class="sprint-bar" style="--duration: 2; --delay: 12;"></div>
+                    </div>
+                    <div class="sprint-duration">2 weeks</div>
+                </div>
+                <div class="timeline-sprint">
+                    <div class="sprint-label">Sprint 6</div>
+                    <div class="sprint-bar-container">
+                        <div class="sprint-bar" style="--duration: 1; --delay: 14;"></div>
+                    </div>
+                    <div class="sprint-duration">1 week</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="tools" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Tools We Used</h2>
+            <div class="row justify-content-center">
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card h-100" data-aos="flip-left" data-aos-delay="100">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="/images/springboot.png?height=200&width=300" class="card-img-top" alt="Spring Boot">
+                                <h5 class="card-title maroon-text">Spring Boot</h5>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">An open-source Java-based framework used to create stand-alone, production-grade Spring-based applications. It simplifies the development process by providing a set of pre-configured settings.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card h-100" data-aos="flip-left" data-aos-delay="200">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="/images/thymeleaf.png?height=200&width=300" class="card-img-top" alt="Thymeleaf">
+                                <h5 class="card-title maroon-text">Thymeleaf</h5>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">A modern server-side Java template engine for both web and standalone environments. It allows for natural templating, meaning templates can be viewed as static prototypes but still be used as working templates.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card h-100" data-aos="flip-left" data-aos-delay="300">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="/images/mysql.png?height=200&width=300" class="card-img-top" alt="MySQL">
+                                <h5 class="card-title maroon-text">MySQL</h5>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">An open-source relational database management system. It's known for its quick processing, proven reliability, ease, and flexibility of use. We used MySQL to store and manage our application's data efficiently.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="card tool-card h-100" data-aos="flip-left" data-aos-delay="400">
+                        <div class="card-inner">
+                            <div class="card-front">
+                                <img src="/images/java.png?height=200&width=300" class="card-img-top" alt="Java">
+                                <h5 class="card-title maroon-text">Java</h5>
+                            </div>
+                            <div class="card-back">
+                                <p class="card-text">A versatile, object-oriented programming language known for its portability across platforms. Java is widely used for building enterprise-scale applications and is the foundation for technologies like Spring Boot and Thymeleaf.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects" class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Our Projects</h2>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="card h-100">
+                        <img src="/images/Tekmart.svg?height=200&width=300" class="card-img-top" alt="Project 1">
+                        <div class="card-body">
+                            <h5 class="card-title maroon-text">E-commerce Platform</h5>
+                            <p class="card-text">Teknoymart is an e-commerce platform designed specifically for Cebu Institute of Technology - University (CIT-U) merchandise. It offers a convenient and efficient way for students, alumni, and faculty to browse, purchase, and receive official CIT-U apparel and accessories. With a user-friendly interface, Teknoymart aims to simplify the buying process and make CIT-U merch more accessible to the campus community.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="card h-100">
+                        <img src="/images/Tingkintin.png?height=200&width=300" class="card-img-top" alt="Project 2">
+                        <div class="card-body">
+                            <h5 class="card-title maroon-text">Ticketing System</h5>
+                            <p class="card-text">Tingkintin is a ticketing system designed to streamline and manage concerns at Cebu Institute of Technology - University (CIT-U). This system allows students, faculty, and staff to submit, track, and resolve various issues efficiently. With an intuitive interface, users can easily report concerns, view ticket status updates, and receive timely resolutions. Tingkintin aims to enhance communication, promote transparency, and improve overall responsiveness to campus-related issues.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4" data-aos="zoom-in">
+                    <div class="card h-100">
+                        <img src="/images/petpals.png?height=200&width=300" class="card-img-top" alt="Project 3">
+                        <div class="card-body">
+                            <h5 class="card-title maroon-text">Pet Care Platform</h5>
+                            <p class="card-text">PetPals is a comprehensive pet care platform designed to support pet owners in managing their pets' health, wellness, and daily needs. With features like appointment scheduling, vaccination reminders, and access to essential care resources, PetPals makes it easy to stay on top of your pet’s care. Whether you're tracking health milestones or connecting with local vets, PetPals is your trusted companion in providing the best care for your furry friends..</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5 bg-light">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Get in Touch</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <form data-aos="fade-up">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Message</label>
+                            <textarea class="form-control" id="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Software Development Team - 3. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const balloons = document.querySelectorAll(".balloon");
+            const confettis = document.querySelectorAll(".confetti");
+    
+            // Delay effect
+            balloons.forEach((balloon, index) => {
+                balloon.style.animationDelay = `${index * 1}s`;
+            });
+            
+            confettis.forEach((confetti, index) => {
+                confetti.style.animationDelay = `${index * 0.5}s`;
+            });
+        });
+    </script>
+    
+</body>
+</html>

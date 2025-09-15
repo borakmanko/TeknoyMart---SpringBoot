@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{header::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Details</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container-fluid">
+        <div class="row">
+          <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+            <div class="position-sticky pt-3">
+              <ul class="nav flex-column">
+                <li class="nav-item">
+                  <a class="nav-link" href="/myaccount">
+                    <i class="bi bi-person"></i> Profile
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/purchase">
+                    <i class="bi bi-cart"></i> My Purchases
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/listings">
+                    <i class="bi bi-tag"></i> My Listings
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="/watchlist">
+                    <i class="bi bi-heart"></i> Watchlist
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">
+                    <i class="bi bi-gear"></i> Settings
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+
+          <main class="col-md-9 ms-sm-auto col-lg-10">
+            <div class="settings-header py-3 mb-4">
+              <h1 class="h2">Account Settings</h1>
+            </div>
+
+            <section id="personal-info" class="settings-section">
+              <h2 class="h4 mb-3">Personal Information</h2>
+              <form>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="firstName" class="form-label">First Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="firstName"
+                      value="John"
+                    />
+                    <!-- <input type="text" class="form-control" id="firstName" th:value="${user.firstName}"> -->
+                  </div>
+                  <div class="col-md-6">
+                    <label for="lastName" class="form-label">Last Name</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="lastName"
+                      value="Doe"
+                    />
+                    <!-- <input type="text" class="form-control" id="lastName" th:value="${user.lastName}"> -->
+                  </div>
+                </div>
+                <div class="mb-3">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    class="form-control"
+                    id="email"
+                    value="johndoe@example.com"
+                  />
+                  <!-- <input type="email" class="form-control" id="email" th:value="${user.email}"> -->
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Save Changes
+                </button>
+              </form>
+            </section>
+
+            <section id="password" class="settings-section">
+              <h2 class="h4 mb-3">Change Password</h2>
+              <form>
+                <div class="mb-3">
+                  <label for="currentPassword" class="form-label"
+                    >Current Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="currentPassword"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="newPassword" class="form-label"
+                    >New Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="newPassword"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="confirmPassword" class="form-label"
+                    >Confirm New Password</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control"
+                    id="confirmPassword"
+                  />
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Change Password
+                </button>
+              </form>
+            </section>
+
+            <section id="notifications" class="settings-section">
+              <h2 class="h4 mb-3">Notification Preferences</h2>
+              <form>
+                <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="emailNotifications"
+                    checked
+                  />
+                  <label class="form-check-label" for="emailNotifications"
+                    >Receive email notifications</label
+                  >
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="smsNotifications"
+                  />
+                  <label class="form-check-label" for="smsNotifications"
+                    >Receive SMS notifications</label
+                  >
+                </div>
+                <div class="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    class="form-check-input"
+                    id="promotionalEmails"
+                    checked
+                  />
+                  <label class="form-check-label" for="promotionalEmails"
+                    >Receive promotional emails</label
+                  >
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Save Preferences
+                </button>
+              </form>
+            </section>
+
+            <section id="shipping-address" class="settings-section">
+              <h2 class="h4 mb-3">Default Shipping Address</h2>
+              <form>
+                <div class="mb-3">
+                  <label for="address" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    value="123 Main St"
+                  />
+                  <!-- <input type="text" class="form-control" id="address" th:value="${user.address}"> -->
+                </div>
+                <div class="row mb-3">
+                  <div class="col-md-6">
+                    <label for="city" class="form-label">City</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="city"
+                      value="Anytown"
+                    />
+                    <!-- <input type="text" class="form-control" id="city" th:value="${user.city}"> -->
+                  </div>
+                  <div class="col-md-4">
+                    <label for="state" class="form-label">State</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="state"
+                      value="CA"
+                    />
+                    <!-- <input type="text" class="form-control" id="state" th:value="${user.state}"> -->
+                  </div>
+                  <div class="col-md-2">
+                    <label for="zipCode" class="form-label">Zip Code</label>
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="zipCode"
+                      value="12345"
+                    />
+                    <!-- <input type="text" class="form-control" id="zipCode" th:value="${user.zipCode}"> -->
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-primary">
+                  Update Address
+                </button>
+              </form>
+            </section>
+
+            <section id="payment-methods" class="settings-section">
+              <h2 class="h4 mb-3">Payment Methods</h2>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">Visa ending in 1234</h5>
+                  <p class="card-text">Expires 12/2025</p>
+                  <a href="#" class="btn btn-sm btn-outline-danger">Remove</a>
+                </div>
+              </div>
+              <div class="card mb-3">
+                <div class="card-body">
+                  <h5 class="card-title">PayPal</h5>
+                  <p class="card-text">johndoe@example.com</p>
+                  <a href="#" class="btn btn-sm btn-outline-danger">Remove</a>
+                </div>
+              </div>
+              <button class="btn btn-primary">Add New Payment Method</button>
+            </section>
+
+            <section id="account-security" class="settings-section">
+              <h2 class="h4 mb-3">Account Security</h2>
+              <div class="mb-3 form-check">
+                <input
+                  type="checkbox"
+                  class="form-check-input"
+                  id="twoFactorAuth"
+                />
+                <label class="form-check-label" for="twoFactorAuth"
+                  >Enable Two-Factor Authentication</label
+                >
+              </div>
+              <button class="btn btn-primary">Manage Security Settings</button>
+            </section>
+
+            <section id="close-account" class="settings-section">
+              <h2 class="h4 mb-3">Close Account</h2>
+              <p class="text-muted">
+                Closing your account is permanent. All of your data will be
+                permanently deleted.
+              </p>
+              <button class="btn btn-danger">Close Account</button>
+            </section>
+          </main>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

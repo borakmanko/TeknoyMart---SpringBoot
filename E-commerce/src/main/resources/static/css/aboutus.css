@@ -1,0 +1,339 @@
+:root {
+    --maroon: #800000;
+    --maroon-light: #A52A2A;
+}
+body {
+    font-family: 'Poppins', sans-serif;
+}
+.hero {
+    background: linear-gradient(135deg, var(--maroon), var(--maroon-light));
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    color: white;
+}
+.team-member {
+    transition: transform 0.3s ease-in-out;
+    height: 100%; 
+    display: flex;
+    flex-direction: column; 
+    justify-content: space-between; 
+}
+.team-member:hover {
+    transform: translateY(-10px);
+}
+.section-title {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+    color: var(--maroon);
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--maroon);
+}
+.skill-bar {
+    height: 10px;
+    border-radius: 5px;
+    background-color: #e9ecef;
+    margin-bottom: 10px;
+}
+.skill-progress {
+    height: 100%;
+    border-radius: 5px;
+    background-color: var(--maroon);
+    transition: width 1s ease-in-out;
+}
+.btn-primary {
+    background-color: var(--maroon);
+    border-color: var(--maroon);
+}
+.btn-primary:hover {
+    background-color: var(--maroon-light);
+    border-color: var(--maroon-light);
+}
+.footer {
+    background-color: maroon;
+}
+.card-text {
+    text-align: justify;
+}
+.maroon-text {
+    color: maroon;
+}
+
+/* Balloon Animation */
+@keyframes float {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+.balloon {
+    position: absolute;
+    bottom: -100px;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: float 7s ease-in infinite;
+}
+/* Larger Balloon Sizes */
+.balloon:nth-child(1) { left: 10%; background-color: #FF6B6B; width: 75px; height: 100px; }
+.balloon:nth-child(2) { left: 20%; background-color: #FFD93D; width: 65px; height: 90px; animation-duration: 8s; }
+.balloon:nth-child(3) { left: 30%; background-color: #6BCB77; width: 80px; height: 105px; animation-duration: 6s; }
+.balloon:nth-child(4) { left: 40%; background-color: #4D96FF; width: 70px; height: 95px; animation-duration: 7.5s; }
+.balloon:nth-child(5) { left: 50%; background-color: #FF7F3F; width: 85px; height: 110px; animation-duration: 8.5s; }
+.balloon:nth-child(6) { left: 60%; background-color: #9B5DE5; width: 78px; height: 100px; animation-duration: 6.5s; }
+.balloon:nth-child(7) { left: 70%; background-color: #F15BB5; width: 68px; height: 90px; animation-duration: 7.8s; }
+.balloon:nth-child(8) { left: 80%; background-color: #00BBF9; width: 76px; height: 98px; animation-duration: 7.2s; }
+.balloon:nth-child(9) { left: 90%; background-color: #4CAF50; width: 83px; height: 105px; animation-duration: 8.3s; }
+/* Confetti Animation */
+@keyframes confetti {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(800px) rotate(360deg);
+        opacity: 0; 
+    }
+}
+.confetti {
+    position: absolute;
+    top: -20px; 
+    width: 40px; 
+    height: 40px;
+    z-index: 10; 
+    opacity: 0.8;
+    border-radius: 50%; 
+    animation: confetti 5s linear infinite;
+}
+/* Different colors for each confetti piece */
+.confetti:nth-child(1) { left: 10%; background-color: #FFD93D; animation-duration: 3.5s; }
+.confetti:nth-child(2) { left: 20%; background-color: #6BCB77; animation-duration: 3s; }
+.confetti:nth-child(3) { left: 30%; background-color: #FF6B6B; animation-duration: 4s; }
+.confetti:nth-child(4) { left: 40%; background-color: #4D96FF; animation-duration: 3.8s; }
+.confetti:nth-child(5) { left: 50%; background-color: #FF7F3F; animation-duration: 3.6s; }
+.confetti:nth-child(6) { left: 60%; background-color: #9B5DE5; animation-duration: 4.1s; }
+.confetti:nth-child(7) { left: 70%; background-color: #F15BB5; animation-duration: 3.9s; }
+.confetti:nth-child(8) { left: 80%; background-color: #00BBF9; animation-duration: 4.2s; }
+.confetti:nth-child(9) { left: 90%; background-color: #4CAF50; animation-duration: 3.7s; }
+.confetti:nth-child(10) { left: 95%; background-color: #FFC857; animation-duration: 4.5s; }
+/* Airplane Style */
+.airplane {
+    position: absolute;
+    top: 10%; 
+    left: -100px; 
+    width: 100px; 
+    height: 100px;
+    background-image: url('/images/airplane.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 15; 
+    animation: flyAcross 10s linear infinite;
+}
+.namie {
+    position: absolute;
+    top: 20%; 
+    left: -100px; 
+    width: 100px; 
+    height: 100px;
+    background-image: url('/images/airplane.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 15; 
+    animation: flyAcross 7s linear infinite;
+}
+.car {
+    position: absolute;
+    top: 80%; 
+    left: -100px; 
+    width: 100px; 
+    height: 100px;
+    background-image: url('/images/car.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 15; 
+    animation: flyAcross 15s linear infinite;
+}
+.truck {
+    position: absolute;
+    top: 82%; 
+    left: -100px; 
+    width: 100px; 
+    height: 100px;
+    background-image: url('/images/truck.png'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+    z-index: 15; 
+    animation: flyAcross 20s linear infinite;
+}
+/* Animation Keyframes for Airplane */
+@keyframes flyAcross {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(95vw); 
+    }
+}
+@keyframes colorChange {
+    0% { color: #FF5733; }   
+    25% { color: #33FF57; }  
+    50% { color: #3357FF; }  
+    75% { color: #FF33A1; }  
+    100% { color: #FF5733; } 
+}
+.color-changing {
+    animation: colorChange 5s infinite;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+/* Timeline Chart Styles */
+.timeline-chart {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.timeline-sprint {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.sprint-label {
+    width: 200px;
+    font-weight: bold;
+    padding-right: 20px;
+}
+.sprint-bar-container {
+    flex-grow: 1;
+    background-color: #e9ecef;
+    border-radius: 4px;
+    overflow: hidden;
+    height: 20px;
+}
+.sprint-bar {
+    height: 100%;
+    background-color: #800000; /* Maroon color */
+    border-radius: 4px;
+    position: relative;
+    width: calc(var(--duration) * 6.67%); /* 6.67% = 100% / 15 weeks */
+    max-width: 100%;
+}
+.sprint-bar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #800000; /* Maroon color */
+    transform-origin: left;
+    animation: growBar 2s ease-out forwards;
+    animation-delay: calc(var(--delay) * 0.1s);
+}
+.sprint-duration {
+    width: 80px;
+    text-align: right;
+    padding-left: 20px;
+}
+@keyframes growBar {
+    0% {
+        transform: scaleX(0);
+    }
+    100% {
+        transform: scaleX(1);
+    }
+}
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .timeline-sprint {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sprint-label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .sprint-bar-container {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+
+    .sprint-duration {
+        width: 100%;
+        text-align: left;
+        padding-left: 0;
+    }
+}
+/* Additional styles for better progress bar appearance */
+.sprint-bar {
+    transition: width 0.5s ease-out;
+}
+.sprint-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+    );
+    background-size: 40px 40px;
+    animation: moveStripes 1s linear infinite;
+}
+@keyframes moveStripes {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 40px 0;
+    }
+}
+/* Ensure all card images are the same size */
+.tool-card .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+}
+/* Center the card titles */
+.tool-card .card-title {
+    text-align: center;
+    font-size: 1.25rem;
+    margin-top: 1rem;
+}
+/* Add padding to the description text in card-back */
+.tool-card .card-back {
+    padding: 1.5rem;
+}
+/* Ensure consistent card styling */
+.tool-card {
+    transition: transform 0.3s;
+}
+.tool-card:hover {
+    transform: scale(1.05);
+}
+
+
+
+
+
+

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{header::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Billing</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container mt-5 p-5">
+        <form action="/user/save-order" method="post">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="fw-bold text-center">Billing Information</h4>
+              <hr />
+              <div class="mb-3 row">
+                <div class="col p-1">
+                  <label for="firstName" class="form-label">First Name</label>
+                  <input
+                    type="text"
+                    id="firstName"
+                    name="firstName"
+                    required
+                    class="form-control mt-1"
+                  />
+                </div>
+                <div class="col p-1">
+                  <label for="lastName" class="form-label">Last Name</label>
+                  <input
+                    type="text"
+                    id="lastName"
+                    name="lastName"
+                    required
+                    class="form-control mt-1"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <div class="col p-1">
+                  <label for="email" class="form-label">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    class="form-control"
+                  />
+                </div>
+                <div class="col p-1">
+                  <label for="mobileNo" class="form-label">Mobile Number</label>
+                  <input
+                    type="tel"
+                    id="mobileNo"
+                    name="mobileNo"
+                    required
+                    class="form-control"
+                  />
+                </div>
+              </div>
+
+              <div class="mb-3 row">
+                <div class="col p-1">
+                  <label for="address" class="form-label">Address</label>
+                  <input
+                    type="text"
+                    id="address"
+                    name="address"
+                    required
+                    class="form-control"
+                  />
+                </div>
+                <div class="col p-1">
+                  <label for="city" class="form-label">City</label>
+                  <input
+                    type="text"
+                    id="city"
+                    name="city"
+                    required
+                    class="form-control"
+                  />
+                </div>
+              </div>
+              <div class="mb-3 row">
+                <div class="col p-1">
+                  <label for="state" class="form-label">Barangay</label>
+                  <input
+                    type="text"
+                    id="state"
+                    name="state"
+                    required
+                    class="form-control"
+                  />
+                </div>
+                <div class="col p-1">
+                  <label for="schoolId" class="form-label">School ID</label>
+                  <input
+                    type="text"
+                    id="schoolId"
+                    name="pincode"
+                    required
+                    class="form-control"
+                  />
+                  <input type="hidden" name="paymentType" value="Onhand Cash">
+                </div>
+              </div>
+              <!-- </form> -->
+            </div>
+            <div class="col-md-6">
+              <h4 class="fw-bold text-center">Payment Summary</h4>
+              <hr />
+              <div class="card">
+                <div class="card-body">
+                  <table class="table table-borderless">
+                    <tbody>
+                      <tr>
+                        <td>Subtotal Price</td>
+                        <td>:</td>
+                        <td>&#8369; [[${orderPrice}]]</td>
+                      </tr>
+                      <tr class="border-top">
+                        <td>Service Fee</td>
+                        <td>:</td>
+                        <td>&#8369; [[${serviceFee}]]</td>
+                      </tr>
+                      <tr class="border-top">
+                        <td>Total Price</td>
+                        <td>:</td>
+                        <td>&#8369; [[${totalOrderPrice}]]</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="mt-3">
+                    <button class="btn btn-ebay col-md-12">
+                      Place Order
+                    </button>
+                  </div>
+                  <div class="mt-2">
+                    <a href="/user/cart" type="button" class="btn btn-secondary col-md-12">
+                      Cancel
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- <div class="card shadow p-3 mb-5 mt-2 bg-body-tertiary rounded">
+                <div class="card-body">
+                  <div class="mb-3">
+                    <label class="form-label">Select Payment Type</label>
+                    <select required name="paymentType" class="form-control">
+                      <option>--select--</option>
+                      <option value="COD">Cash On Delivery</option>
+                      <option value="ONLINE">Online Payment</option>
+                    </select>
+                  </div>
+
+                  <button class="btn btn-ebay col-md-12">
+                    Place Order
+                  </button>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

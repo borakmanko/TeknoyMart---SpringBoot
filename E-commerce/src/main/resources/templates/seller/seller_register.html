@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create your seller account | TeknoyMart</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body class="rs-teknoy-bg">
+    <div
+      class="container d-flex align-items-center justify-content-center min-vh-100 py-5"
+    >
+      <div class="rs-teknoy-container col-md-6">
+        <div class="text-center mb-4">
+          <a href="/">
+            <img
+              src="/images/Tekmart.png"
+              alt="TeknoyMart Logo"
+              height="200px"
+              width="400px"
+            />
+          </a>
+        </div>
+        <h3 class="text-center mb-4 fw-bold rs-teknoy-title">
+          Create your seller account
+        </h3>
+        <th:block th:if="${session.succMsg}">
+          <p
+            class="alert alert-success text-center"
+            th:text="${session.succMsg}"
+          ></p>
+          <th:block
+            th:text="${@commnServiceImpl.removeSessionMessage()}"
+          ></th:block>
+        </th:block>
+        <th:block th:if="${session.errorMsg}">
+          <p
+            class="alert alert-danger text-center"
+            th:text="${session.errorMsg}"
+          ></p>
+          <th:block
+            th:text="${@commnServiceImpl.removeSessionMessage()}"
+          ></th:block>
+        </th:block>
+        <p class="text-center mb-4">
+          <span class="text-muted">Already have an account?</span>
+          <a href="/login" class="rs-teknoy-link text-decoration-none"
+            >Sign in</a
+          >
+        </p>
+        <form
+          id="registrationForm"
+          action="/saveSeller"
+          enctype="multipart/form-data"
+          method="post"
+        >
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="form-label">Full Name</label>
+              <input required class="form-control" name="name" type="text" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Mobile Number</label>
+              <input
+                required
+                class="form-control"
+                name="mobileNumber"
+                type="number"
+              />
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input required class="form-control" name="email" type="email" />
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="form-label">Address</label>
+              <input required class="form-control" name="address" type="text" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">City</label>
+              <input required class="form-control" name="city" type="text" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label class="form-label">Barangay</label>
+              <input required class="form-control" name="state" type="text" />
+            </div>
+            <div class="col-md-6">
+              <label class="form-label">Zip Code</label>
+              <input
+                required
+                class="form-control"
+                name="pincode"
+                type="number"
+              />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6 mb-3 mb-md-0">
+              <label for="password" class="form-label">Password</label>
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="password"
+                  name="password"
+                  required
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="togglePassword"
+                >
+                  <i class="bi bi-eye-slash-fill"></i>
+                </button>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <label for="confirmPassword" class="form-label"
+                >Confirm Password</label
+              >
+              <div class="input-group">
+                <input
+                  type="password"
+                  class="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  required
+                />
+                <button
+                  class="btn btn-outline-secondary"
+                  type="button"
+                  id="toggleConfirmPassword"
+                >
+                  <i class="bi bi-eye-slash-fill"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label"
+              >Profile Image <small class="text-muted">(optional)</small></label
+            >
+            <input
+              class="form-control"
+              name="img"
+              type="file"
+              accept="image/*"
+            />
+          </div>
+          <div class="d-grid gap-2 mb-3">
+            <button type="submit" class="btn rs-teknoy-btn py-2 rounded-pill">
+              <span class="fw-bold">Register</span>
+            </button>
+          </div>
+        </form>
+        <footer class="text-center text-muted small">
+          <p>
+            Copyright © 2024 TeknoyMart Inc. All Rights Reserved.
+            <i class="bi bi-info-circle"></i>
+          </p>
+        </footer>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      function togglePasswordVisibility(inputId, toggleId) {
+        const input = document.getElementById(inputId);
+        const toggle = document.getElementById(toggleId);
+
+        toggle.addEventListener("click", function () {
+          const type =
+            input.getAttribute("type") === "password" ? "text" : "password";
+          input.setAttribute("type", type);
+          this.querySelector("i").classList.toggle("bi-eye-fill");
+          this.querySelector("i").classList.toggle("bi-eye-slash-fill");
+        });
+      }
+
+      togglePasswordVisibility("password", "togglePassword");
+      togglePasswordVisibility("confirmPassword", "toggleConfirmPassword");
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html
+  lang="en"
+  xmlns="http://www.thymeleaf.org"
+  th:replace="~{header::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Details</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container mt-4">
+        <h2 class="fw-bold mb-4">My Profile</h2>
+        <th:block th:if="${session.succMsg}">
+          <div class="alert alert-success">
+            <small th:text="${session.succMsg}"></small>
+          </div>
+          <th:block
+            th:text="${@commnServiceImpl.removeSessionMessage()}"
+          ></th:block>
+        </th:block>
+
+        <th:block th:if="${session.errorMsg}">
+          <div class="alert alert-danger">
+            <small th:text="${session.errorMsg}"></small>
+          </div>
+          <th:block
+            th:text="${@commnServiceImpl.removeSessionMessage()}"
+          ></th:block>
+        </th:block>
+        <div class="card mb-4">
+          <div class="card-body">
+            <div class="d-flex align-items-center mb-2">
+              <img
+                th:src="@{'../images/profile_img/'+${user.profileImage}}"
+                alt="Profile Picture"
+                class="profile-picture me-4"
+              />
+              <div class="d-flex flex-column">
+                <h3 class="fw-bold mb-0">[[${user.name}]]</h3>
+                <small class="text-muted mb-0">[[${user.email}]]</small>
+                <small class="text-muted mb-0">[[${user.address}]]</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-4">
+          <form
+            action="/user/update-profile"
+            method="post"
+            enctype="multipart/form-data"
+          >
+            <div class="card-body">
+              <h4 class="fw-bold mb-3">Personal Information</h4>
+              <div class="row">
+                <div class="col-md-4 mb-2">
+                  <label for="fullName" class="form-label">Full Name</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="fullName"
+                    name="name"
+                    th:value="${user.name}"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="mobileNumber" class="form-label"
+                    >Mobile Number</label
+                  >
+                  <input
+                    type="tel"
+                    class="form-control"
+                    id="mobileNumber"
+                    name="mobileNumber"
+                    th:value="${user.mobileNumber}"
+                  />
+                </div>
+
+                <div class="col-md-4 mb-2">
+                  <label for="address" class="form-label">Street Address</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="address"
+                    name="address"
+                    th:value="${user.address}"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="city" class="form-label">City</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="city"
+                    name="city"
+                    th:value="${user.city}"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="state" class="form-label">Barangay</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="state"
+                    name="state"
+                    th:value="${user.state}"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="pincode" class="form-label">School ID</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="pincode"
+                    name="pincode"
+                    th:value="${user.pincode}"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="profileImage" class="form-label"
+                    >Profile Image</label
+                  >
+                  <input
+                    type="file"
+                    name="img"
+                    class="form-control"
+                    id="profileImage"
+                  />
+                </div>
+                <div class="col-md-12 mt-2">
+                  <button class="btn btn-ebay">Update Profile</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="card">
+          <form action="/user/change-password" method="post">
+            <div class="card-body">
+              <h4 class="fw-bold mb-3">Change Password</h4>
+              <div class="row">
+                <div class="col-md-4 mb-2">
+                  <label for="currentPassword" class="form-label">Current Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="currentPassword"
+                    name="currentPassword"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="newPassword" class="form-label">New Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="newPassword"
+                    name="newPassword"
+                  />
+                </div>
+                <div class="col-md-4 mb-2">
+                  <label for="confirmPassword" class="form-label">Confirm Password</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                  />
+                </div>
+                <div class="col-md-12 mt-2">
+                  <button class="btn btn-ebay">Update Password</button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

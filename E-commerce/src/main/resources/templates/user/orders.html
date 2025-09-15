@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{header::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orders | TeknoyMart</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container mt-4">
+        <header class="mb-4">
+          <h2 class="fw-bold">Order Listing</h2>
+          <small>Manage and track your orders</small>
+        </header>
+        <th:block th:if="${session.succMsg}">
+          <div class="alert alert-success text-center">
+            <small th:text="${session.succMsg}"></small>
+          </div>
+          <th:block
+            th:text="${@commnServiceImpl.removeSessionMessage()}"
+          ></th:block>
+        </th:block>
+
+        <th:block th:if="${session.errorMsg}">
+          <div class="alert alert-danger text-center">
+            <small th:text="${session.errorMsg}"></small>
+          </div>
+          <th:block
+            th:text="${@commnServiceImpl.removeSessionMessage()}"
+          ></th:block>
+        </th:block>
+        <div class="row mb-4">
+          <div class="col-md-6 mb-3 mb-md-0">
+            <div class="input-group">
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Search orders..."
+                aria-label="Search orders"
+              />
+              <button class="btn btn-ebay" type="button">
+                <i class="bi bi-search"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="row g-4">
+          <div class="col-12 col-md-6 col-lg-4" th:each="o:${orders}">
+            <div class="card order-card">
+              <img
+                th:src="@{'/images/product_img/' + ${o.product.image}}"
+                alt="Product Image"
+                class="product-image"
+              />
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-start mb-1"
+                >
+                  <h6 class="m-0">
+                    <strong>Order Id:</strong> [[${o.orderId}]]
+                  </h6>
+                </div>
+                <small class="card-subtitle mb-2 text-muted">
+                  [[${o.orderDate}]]
+                </small>
+                <p class="card-text mt-2">
+                  <strong>Product:</strong> [[${o.product.title}]]<br />
+                  <strong>Status: </strong
+                  ><span class="badge bg-maroon p-1">[[${o.status}]]</span>
+                  <br />
+                  <strong>Total Price:</strong> [[${o.quantity * o.price}]]
+                </p>
+
+                <div class="d-flex justify-content-start align-items-center">
+                  <div>
+                    <th:block th:if="${o.status!='Cancelled'}">
+                      <a
+                        th:href="@{'/user/update-status?id='+${o.id}+'&st=6' }"
+                        class="btn btn-sm btn-ebay"
+                        title="Cancel"
+                        >Cancel Order</a
+                      >
+                    </th:block>
+                    <th:block th:unless="${o.status!='Cancelled'}">
+                      <a
+                        href="#"
+                        class="btn btn-sm btn-secondary disabled"
+                        title="Cancel"
+                        >Cancelled</a
+                      >
+                    </th:block>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <th:block th:unless="${orders.size()}">
+          <div class="text-center my-5 pb-5">
+            <h3 class="text-danger">No order placed yet!</h3>
+            <small class="text-muted">Looks like you haven't placed any order. Please add products to your cart and checkout when you are ready.</small> <br>
+            <a href="/products" type="button" class="btn btn-ebay mt-3 p-2">Start Shopping!</a>
+          </div>
+        </th:block>
+      </div>
+    </section>
+
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

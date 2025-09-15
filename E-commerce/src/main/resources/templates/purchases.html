@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Purchases</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css" />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <header class="border-bottom">
+    <div class="container">
+      <div class="row py-2 align-items-center">
+        <div class="col d-flex align-items-center">
+          <span class="me-2">Hi!</span>
+          <a href="/login" class="text-decoration-underline me-1">Sign in</a>
+          <span class="me-1">or</span>
+          <a href="/register" class="text-decoration-underline">Register</a>
+        </div>
+        <div class="col d-flex justify-content-end align-items-center">
+          <a href="/products" class="text-decoration-none me-3 text-body">Products</a>
+          <div class="dropdown d-inline-block me-3">
+            <button class="btn btn-link text-decoration-none p-0 dropdown-toggle text-body" type="button" id="myEbayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+              My TeknoMart
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="myEbayDropdown">
+              <li><a class="dropdown-item" href="/myaccount">My Account</a></li>
+              <li><a class="dropdown-item" href="#">Another action</a></li>
+            </ul>
+          </div>
+          <i class="bi bi-bell me-3"></i>
+          <a href="/cart">
+            <i class="bi bi-cart3"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="myaccount">
+                            <i class="bi bi-person"></i> Profile
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="/purchase">
+                            <i class="bi bi-cart"></i> My Purchases
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/listings">
+                            <i class="bi bi-tag"></i> My Listings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/watchlist">
+                            <i class="bi bi-heart"></i> Watchlist
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/settings">
+                            <i class="bi bi-gear"></i> Settings
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            <div class="purchases-header py-3 mb-4">
+                <h1 class="h2">My Purchases</h1>
+            </div>
+
+            <div class="purchases-controls mb-4">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search your purchases">
+                            <button class="btn btn-outline-secondary" type="button">Search</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                        <button class="btn btn-outline-primary me-2">
+                            <i class="bi bi-sort-down"></i> Sort
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="bi bi-filter"></i> Filter
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="purchase-items">
+                <!-- Purchase Item 1 -->
+                <div class="purchase-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Vintage Camera" class="item-image">
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="h5 mb-2">Vintage Polaroid SX-70 Land Camera</h3>
+                            <p class="mb-1">Order date: April 15, 2023</p>
+                            <p class="mb-0 status status-delivered">Status: Delivered</p>
+                        </div>
+                        <div class="col-md-2 text-md-center">
+                            <p class="price mb-1">$89.99</p>
+                            <p class="mb-0">Qty: 1</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button class="btn btn-primary btn-sm mb-2 me-2">View Order Details</button>
+                            <button class="btn btn-outline-secondary btn-sm mb-2">Leave Feedback</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase Item 2 -->
+                <div class="purchase-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Leather Jacket" class="item-image">
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="h5 mb-2">Genuine Leather Motorcycle Jacket</h3>
+                            <p class="mb-1">Order date: April 10, 2023</p>
+                            <p class="mb-0 status status-shipped">Status: Shipped</p>
+                        </div>
+                        <div class="col-md-2 text-md-center">
+                            <p class="price mb-1">$129.99</p>
+                            <p class="mb-0">Qty: 1</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button class="btn btn-primary btn-sm mb-2 me-2">Track Shipment</button>
+                            <button class="btn btn-outline-secondary btn-sm mb-2">View Order Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase Item 3 -->
+                <div class="purchase-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Antique Clock" class="item-image">
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="h5 mb-2">Antique Brass Mantel Clock</h3>
+                            <p class="mb-1">Order date: April 5, 2023</p>
+                            <p class="mb-0 status status-processing">Status: Processing</p>
+                        </div>
+                        <div class="col-md-2 text-md-center">
+                            <p class="price mb-1">$75.00</p>
+                            <p class="mb-0">Qty: 1</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button class="btn btn-primary btn-sm mb-2 me-2">View Order Details</button>
+                            <button class="btn btn-outline-secondary btn-sm mb-2">Contact Seller</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Purchase Item 4 -->
+                <div class="purchase-item">
+                    <div class="row align-items-center">
+                        <div class="col-md-2">
+                            <img src="/placeholder.svg?height=100&width=100" alt="Smartphone" class="item-image">
+                        </div>
+                        <div class="col-md-4">
+                            <h3 class="h5 mb-2">Apple iPhone 13 Pro - 256GB - Graphite</h3>
+                            <p class="mb-1">Order date: March 28, 2023</p>
+                            <p class="mb-0 status status-delivered">Status: Delivered</p>
+                        </div>
+                        <div class="col-md-2 text-md-center">
+                            <p class="price mb-1">$899.99</p>
+                            <p class="mb-0">Qty: 1</p>
+                        </div>
+                        <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                            <button class="btn btn-primary btn-sm mb-2 me-2">View Order Details</button>
+                            <button class="btn btn-outline-secondary btn-sm mb-2">Leave Feedback</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <nav aria-label="Purchases pagination" class="mt-4">
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled">
+                        <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Previous</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item">
+                        <a class="page-link" href="#">Next</a>
+                    </li>
+                </ul>
+            </nav>
+        </main>
+    </div>
+</div>
+
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

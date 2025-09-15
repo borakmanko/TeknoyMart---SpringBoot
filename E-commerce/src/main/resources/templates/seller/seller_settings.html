@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Settings</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <header class="border-bottom">
+    <div class="container">
+        <div class="row py-2 align-items-center">
+            <div class="col d-flex align-items-center">
+                <span class="me-2">Hi!</span>
+                <a href="/login" class="text-decoration-underline me-1">Sign in</a>
+                <span class="me-1">or</span>
+                <a href="/register" class="text-decoration-underline">Register</a>
+                <span class="me-1">or</span>
+                <a href="/admin" class="text-decoration-underline">Admin</a>
+                <span class="me-1">or</span>
+                <a href="/seller" class="text-decoration-underline">Seller</a>
+            </div>
+            <div class="col d-flex justify-content-end align-items-center">
+                <a href="/products" class="text-decoration-none me-3 text-body">Products</a>
+                <div class="dropdown d-inline-block me-3">
+                    <button class="btn btn-link text-decoration-none p-0 dropdown-toggle text-body" type="button" id="myEbayDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        My eBay
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="myEbayDropdown">
+                        <li><a class="dropdown-item" href="/myaccount">My Account</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                    </ul>
+                </div>
+                <i class="bi bi-bell me-3"></i>
+                <a href="/cart">
+                    <i class="bi bi-cart3"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</header>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+        <!-- Sidebar -->
+        <nav class="col-md-3 col-lg-2 d-md-block sidebar collapse">
+            <div class="position-sticky pt-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/seller">
+                            <i class="bi bi-speedometer me-2"></i>Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/seller/addProduct">
+                            <i class="bi bi-basket3-fill me-2"></i>Add Product
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/orders">
+                            <i class="bi bi-list-task me-2"></i>Orders
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/seller/products">
+                            <i class="bi bi-bag-dash-fill me-2"></i>Products List
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/messages">
+                            <i class="bi bi-chat-dots-fill me-2"></i>Messages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/ssettings">
+                            <i class="bi bi-gear-fill me-2"></i>Settings
+                        </a>
+                    </li>
+                    <!-- Logout -->
+                    <li class="nav-item">
+                        <a class="nav-link mb-3" href="/logout">
+                            <i class="bi bi-box-arrow-right me-2"></i>Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+            <!-- Main content -->
+            <main class="col-md-9 ms-sm-auto col-lg-10">
+                <div class="content" style="scrollbar-width: thin;">
+                    <section id="settings" class="mb-5">
+                        <h2 class="h3 mb-4">Seller Settings</h2>
+                        
+                        <div class="row">
+                            <div class="col-md-3 mb-4">
+                                <div class="list-group" id="settings-tabs" role="tablist">
+                                    <a class="list-group-item list-group-item-action active active-tab" id="account-tab" data-bs-toggle="list" href="#account" role="tab" aria-controls="account">
+                                        <i class="fas fa-user me-2"></i> Account
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" id="store-tab" data-bs-toggle="list" href="#store" role="tab" aria-controls="store">
+                                        <i class="fas fa-store me-2"></i> Store Settings
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" id="listing-tab" data-bs-toggle="list" href="#listing" role="tab" aria-controls="listing">
+                                        <i class="fas fa-tag me-2"></i> Listing Preferences
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" id="shipping-tab" data-bs-toggle="list" href="#shipping" role="tab" aria-controls="shipping">
+                                        <i class="fas fa-truck me-2"></i> Shipping
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" id="payment-tab" data-bs-toggle="list" href="#payment" role="tab" aria-controls="payment">
+                                        <i class="fas fa-credit-card me-2"></i> Payment
+                                    </a>
+                                    <a class="list-group-item list-group-item-action" id="notifications-tab" data-bs-toggle="list" href="#notifications" role="tab" aria-controls="notifications">
+                                        <i class="fas fa-bell me-2"></i> Notifications
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-9">
+                                <div class="tab-content">
+                                    <div class="tab-pane fade show active" id="account" role="tabpanel" aria-labelledby="account-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Account Settings</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="sellerName" class="form-label">Seller Name</label>
+                                                        <input type="text" class="form-control" id="sellerName" value="JohnDoeStore">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="email" class="form-label">Email</label>
+                                                        <input type="email" class="form-control" id="email" value="johndoe@example.com">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="phone" class="form-label">Phone</label>
+                                                        <input type="tel" class="form-control" id="phone" value="+1 (555) 123-4567">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="businessAddress" class="form-label">Business Address</label>
+                                                        <textarea class="form-control" id="businessAddress" rows="3">123 Main St, Anytown, USA 12345</textarea>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-ebay">Save Changes</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="store" role="tabpanel" aria-labelledby="store-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Store Settings</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="storeName" class="form-label">Store Name</label>
+                                                        <input type="text" class="form-control" id="storeName" value="John's Awesome Store">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="storeDescription" class="form-label">Store Description</label>
+                                                        <textarea class="form-control" id="storeDescription" rows="3">Welcome to John's Awesome Store! We offer a wide range of high-quality products at great prices.</textarea>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="storeCategory" class="form-label">Primary Store Category</label>
+                                                        <select class="form-select" id="storeCategory">
+                                                            <option selected>Electronics</option>
+                                                            <option>Fashion</option>
+                                                            <option>Home & Garden</option>
+                                                            <option>Sporting Goods</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="storeLogo" class="form-label">Store Logo</label>
+                                                        <input type="file" class="form-control" id="storeLogo">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-ebay">Update Store Settings</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="listing" role="tabpanel" aria-labelledby="listing-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Listing Preferences</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="defaultCategory" class="form-label">Default Category</label>
+                                                        <select class="form-select" id="defaultCategory">
+                                                            <option selected>Electronics</option>
+                                                            <option>Computers & Tablets</option>
+                                                            <option>Cell Phones & Accessories</option>
+                                                            <option>Cameras & Photo</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="defaultCondition" class="form-label">Default Item Condition</label>
+                                                        <select class="form-select" id="defaultCondition">
+                                                            <option selected>New</option>
+                                                            <option>Used</option>
+                                                            <option>Refurbished</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="autoRelist" checked>
+                                                        <label class="form-check-label" for="autoRelist">Automatically relist unsold items</label>
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="bestOffer" checked>
+                                                        <label class="form-check-label" for="bestOffer">Allow Best Offer by default</label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-ebay">Save Listing Preferences</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="shipping" role="tabpanel" aria-labelledby="shipping-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Shipping Settings</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="defaultShipping" class="form-label">Default Shipping Service</label>
+                                                        <select class="form-select" id="defaultShipping">
+                                                            <option selected>USPS Priority Mail</option>
+                                                            <option>UPS Ground</option>
+                                                            <option>FedEx Home Delivery</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="handlingTime" class="form-label">Handling Time (days)</label>
+                                                        <input type="number" class="form-control" id="handlingTime" value="1">
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="freeShipping">
+                                                        <label class="form-check-label" for="freeShipping">Offer free shipping by default</label>
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="internationalShipping" checked>
+                                                        <label class="form-check-label" for="internationalShipping">Offer international shipping</label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-ebay">Save Shipping Settings</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="payment" role="tabpanel" aria-labelledby="payment-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Payment Settings</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="mb-3">
+                                                        <label for="paymentMethod" class="form-label">Preferred Payout Method</label>
+                                                        <select class="form-select" id="paymentMethod">
+                                                            <option selected>Direct Deposit</option>
+                                                            <option>PayPal</option>
+                                                            <option>Check</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="bankAccount" class="form-label">Bank Account Number (for Direct Deposit)</label>
+                                                        <input type="text" class="form-control" id="bankAccount" value="**** **** **** 1234">
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label for="routingNumber" class="form-label">Routing Number</label>
+                                                        <input type="text" class="form-control" id="routingNumber" value="123456789">
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="immediatePayment" checked>
+                                                        <label class="form-check-label" for="immediatePayment">Require immediate payment for Buy It Now items</label>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-ebay">Update Payment Settings</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="tab-pane fade" id="notifications" role="tabpanel" aria-labelledby="notifications-tab">
+                                        <div class="card">
+                                            <div class="card-header">
+                                                <h5 class="card-title mb-0">Notification Preferences</h5>
+                                            </div>
+                                            <div class="card-body">
+                                                <form>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="emailNotifications" checked>
+                                                        <label class="form-check-label" for="emailNotifications">Email Notifications</label>
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="smsNotifications">
+                                                        <label class="form-check-label" for="smsNotifications">SMS Notifications</label>
+                                                    </div>
+                                                    <div class="mb-3 form-check">
+                                                        <input type="checkbox" class="form-check-input" id="pushNotifications" checked>
+                                                        <label class="form-check-label" for="pushNotifications">Push Notifications</label>
+                                                    </div>
+                                                    <div class="mb-3">
+                                                        <label class="form-label">Notify me when:</label>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="notifyOrder" checked>
+                                                            <label class="form-check-label" for="notifyOrder">I receive an order</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="notifyMessage" checked>
+                                                            <label class="form-check-label" for="notifyMessage">I receive a message</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="notifyFeedback" checked>
+                                                            <label class="form-check-label" for="notifyFeedback">I receive feedback</label>
+                                                        </div>
+                                                        <div class="form-check">
+                                                            <input type="checkbox" class="form-check-input" id="notifyPromotion">
+                                                            <label class="form-check-label" for="notifyPromotion">eBay has a new promotion or update</label>
+                                                        </div>
+                                                    </div>
+                                                    <button type="submit" class="btn btn-ebay">Save Notification Preferences</button>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+    </div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+

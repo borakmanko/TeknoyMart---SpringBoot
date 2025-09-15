@@ -1,0 +1,111 @@
+/*Stripe Checkout*/
+.sc-teknoymart-body {
+    background-image: url('/images/pbg.jpg');
+    background-size: cover;
+    background-position: center;
+}
+.sc-teknoymart-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+.sc-teknoymart-title {
+    color: #333;
+}
+.sc-teknoymart-btn {
+    background-color: maroon;
+    color: yellow;
+}
+.sc-teknoymart-btn:hover {
+    background-color: yellow;
+    color: maroon;
+}
+#spinner {
+    display: none;
+}
+#spinner.visible {
+    display: inline-block;
+}
+/*Stripe Payment*/
+.login-teknoy-bg {
+    background-image: url('/images/paymentt.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 100vh;
+}
+
+.login-teknoy-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 15px;
+    padding: 2rem;
+}
+
+.login-teknoy-btn {
+    background-color: maroon;
+    color: yellow;
+}
+
+.login-teknoy-btn:hover {
+    background-color: yellow;
+    color: maroon;
+}
+
+.login-teknoy-link {
+    color: maroon;
+}
+
+.login-teknoy-link:hover {
+    color: #740505;
+}
+
+.login-teknoy-title {
+    position: relative;
+    overflow: hidden;
+}
+
+.login-teknoy-title::before,
+.login-teknoy-title::after {
+    content: '⭐';
+    position: absolute;
+    top: 0;
+    font-size: 24px;
+    animation: moveStars 3s linear infinite;
+}
+
+.login-teknoy-title::before {
+    left: -30px;
+}
+
+.login-teknoy-title::after {
+    right: -30px;
+}
+
+@keyframes moveStars {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(100% + 30px));
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

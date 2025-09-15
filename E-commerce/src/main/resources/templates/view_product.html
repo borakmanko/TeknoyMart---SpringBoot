@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  th:replace="~{header::layout(~{::section})}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>View Details</title>
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/webjars/bootstrap-icons/1.11.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container mt-5">
+        <div class="row">
+          <th:block th:if="${session.succMsg}">
+            <p
+              class="text-success alert alert-success text-center"
+              role="alert"
+            >
+              [[${session.succMsg}]]
+            </p>
+            <th:block
+              th:text="${@commnServiceImpl.removeSessionMessage()}"
+            ></th:block>
+          </th:block>
+
+          <th:block th:if="${session.errorMsg}">
+            <p class="text-danger text-center alert alert-danger">
+              [[${session.errorMsg}]]
+            </p>
+            <th:block
+              th:text="${@commnServiceImpl.removeSessionMessage()}"
+            ></th:block>
+          </th:block>
+          <div class="col-md-6">
+            <img
+              th:src="@{'/images/product_img/'+${product.image}}"
+              class="img-fluid"
+              style="height: 350px; width: 500px"
+            />
+          </div>
+
+          <div class="col-md-6">
+            <h1 class="mb-3 maroon-text fw-bold">[[${product.title}]]</h1>
+
+            <div class="mb-3">
+              <p class="fs-5 fw-bold">
+                Price : &#8369;[[${product.discountPrice}]]
+                <span class="fs-6 text-decoration-line-through text-secondary"
+                  >[[${product.price}]]</span
+                >
+                <span class="fs-6 text-success"
+                  >[[${product.discount}]]% off</span
+                >
+              </p>
+            </div>
+
+            <div class="mb-3">
+              <p>
+                <strong>Status: </strong>
+                <th:block th:if="${product.stock>0}">
+                  <span class="badge bg-success">Available</span>
+                </th:block>
+                <th:block th:unless="${product.stock>0}">
+                  <span class="badge bg-warning">Out of Stock</span>
+                </th:block>
+              </p>
+            </div>
+            <div class="mb-3">
+              <p><strong>Category:</strong> [[${product.category}]]<br /></p>
+            </div>
+            <p class="mb-3">
+              <strong>Description:</strong> [[${product.description}]]
+            </p>
+
+            <div class="mb-3"><strong>Seller:</strong> Skibidi123</div>
+
+            <div class="mb-3"><strong>Item Location:</strong> New York, NY</div>
+
+            <th:block th:if="${product.stock>0}">
+              <div class="mb-3">
+                <th:block th:if="${user==null}">
+                  <a href="/login" type="button" class="btn btn-ebay"
+                    >Add to Cart</a
+                  >
+                </th:block>
+                <th:block th:unless="${user==null}">
+                  <a
+                    th:href="@{'/user/addCart?productItemId='+${product.itemId}+'&uid='+${user.id}}"
+                    type="button"
+                    class="btn btn-ebay"
+                    >Add to Cart</a
+                  >
+                </th:block>
+                <a href="/products" type="button" class="btn btn-secondary"
+                  >Return</a
+                >
+              </div>
+            </th:block>
+
+            <th:block th:unless="${product.stock>0}">
+              <div class="mb-3">
+                <button class="btn btn-secondary" disabled>Out of Stock</button>
+                <a href="/products" type="button" class="btn btn-danger"
+                  >Return</a
+                >
+              </div>
+            </th:block>
+          </div>
+        </div>
+        
+        <script>
+          // Pagination functionality
+          document.addEventListener('DOMContentLoaded', function() {
+            const reviewsContainer = document.getElementById('reviewsContainer');
+            const paginationLinks = document.querySelectorAll('.pagination .page-link');
+            
+            paginationLinks.forEach(link => {
+              link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all links
+                paginationLinks.forEach(l => l.parentElement.classList.remove('active'));
+                
+                // Add active class to clicked link
+                this.parentElement.classList.add('active');
+                
+                // Here you would typically fetch the reviews for the selected page
+                // For this static example, we'll just show a message
+                reviewsContainer.innerHTML = `<div class="alert alert-info">Reviews for page ${this.textContent} would be loaded here.</div>`;
+              });
+            });
+          });
+        </script>
+      </div>
+      <footer class="footerr text-white py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Software Development Team - 3. All rights reserved.</p>
+        </div>
+    </footer>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/webjars/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/webjars/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
